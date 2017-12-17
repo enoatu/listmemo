@@ -1,0 +1,24 @@
+@media screen and (min-width:0px) {
+    /*基本　スマホ用*/
+    body{
+
+    }
+
+    h1{
+
+    }
+
+    #wrap{
+        vertical-align: middle;
+        text-align: center;
+    }
+    #plus_minus_flex{
+        display: flex;
+    }
+
+
+}
+
+@media screen and (min-width:1024px) {
+    /*パソコン修正用*/
+}

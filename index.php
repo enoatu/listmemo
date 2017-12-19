@@ -7,7 +7,7 @@ require_once __DIR__."/custom.php"
 <head>
     <meta name="viewport" content="width=device-width,
     initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="style.php">
+    <link rel="stylesheet" href="style.css">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
     <meta charset="UTF-8">
@@ -19,11 +19,11 @@ require_once __DIR__."/custom.php"
 
 <div id="wrap">
 
-    <button id="plus">+</button>
+    <button id="plus">+</button><button id="delete_btn">-</button>
 
-    <div id="list">
-        <input type="checkbox"><input type='text'>
-    </div>
+    <form id="list" name="list">
+        <input type="checkbox" name="check[]"><input type='text'><br>
+    </form>
 
     </div>
 
@@ -35,5 +35,10 @@ require_once __DIR__."/custom.php"
 </html>
 <script src="js.js"></script>
 
+<style>
+    input[type=checkbox]{
+        background-color:<?php echo $checkbox_color; ?>;
+    }
+</style>
 <!--
 フリック操作

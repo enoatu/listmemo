@@ -1,6 +1,9 @@
 <?php
-require_once __DIR__."/sql.php";
-require_once __DIR__."/custom.php"
+require_once __DIR__."/custom.php";
+require_once __DIR__."/read.php";
+if($_POST['a0']){
+    echo "saveされました";
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -18,13 +21,24 @@ require_once __DIR__."/custom.php"
 <h1><?php echo $title;?></h1>
 
 <div id="wrap">
+    <div id="side">
+        <button></button>
+    </div>
 
-    <button id="plus">+</button><button id="delete_btn">-</button>
+    <div id="main">
+        <button id="save" type="submit">保存</button>
+        <button id="plus">+</button><button id="delete_btn">-</button>
 
-    <form id="list" name="list">
-        <input type="checkbox" name="check[]"><input type='text'><br>
-    </form>
-
+        <form id="list" name="list" method="post" action="save.php">
+            <?php
+            foreach($result as $row){
+                $cnI=1;
+            echo "<input type='checkbox' name='check[]'>
+<input type='text' name=a".$cnI." value=".$row['text']."><br>";
+                $cnI++;
+            }
+            ?>
+        </form>
     </div>
 
 </div>

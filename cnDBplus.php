@@ -13,7 +13,7 @@ function getDB(){
     $user = null;
     $password = null;
     $dbName = null;
-    include "cnDB.php";//change file
+    include __DIR__."/cnDB.php";//change file
     if(!$host==""||!$user=="") {//何か入ってるときは
         $dsn = "mysql:host={$host};dbname={$dbName};charset=utf8";
         $pdo = new PDO($dsn, $user, $password);

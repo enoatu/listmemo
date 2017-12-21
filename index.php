@@ -34,9 +34,10 @@ if($_POST['a0']){
             foreach($result as $row){
                 $cnI=1;
             echo "<input type='checkbox' name='check[]'>
-<input type='text' name=a".$cnI." value=".$row['text']."><br>";
+            <input type='text' name=a".$cnI." value=".$row['text']."><br>";
                 $cnI++;
             }
+
             ?>
         </form>
     </div>

@@ -1,8 +1,3 @@
-<?php
-header('Content-Type: text/css; charset=utf-8');
-require_once __DIR__."/custom.php";
-?>
-
 @media screen and (min-width:0px) {
     /*基本　スマホ用*/
     html{
@@ -23,8 +18,17 @@ require_once __DIR__."/custom.php";
     #wrap{
         vertical-align: middle;
         text-align: center;
+        display:flex;
+    }
+    #side{
+        flex:1 ;
+        background:#7ac2ff;
+        height: 100%;
     }
 
+    #main{
+        flex: 4;
+    }
     #list{
         text-align: center;
     }
@@ -33,10 +37,22 @@ require_once __DIR__."/custom.php";
         text-align: center;
 
     }
+    #delete_btn{
+        visibility: hidden;
+    }
 
     input[type=checkbox]{
-        background-color:<?php echo $checkbox_color; ?>;
-         }
+        width:25px;
+        height:25px;
+        /*visibility: hidden;*/
+        display:none;
+    }
+    input[type=text]{
+        width:75%;
+        height:25px;
+        font-size: 2em;
+
+    }
 
 
 }

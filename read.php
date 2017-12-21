@@ -4,6 +4,7 @@ $sql="SELECT* FROM list_memo";
 $stm = getDB()->prepare($sql);
 $stm->execute();
 $result = $stm->fetchAll(PDO::FETCH_ASSOC);
+$_SESSION['idcount']=count($result);
 
 //foreach ($result as $row){
 //    $id=$row['id'];

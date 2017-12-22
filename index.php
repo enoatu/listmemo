@@ -1,6 +1,8 @@
 <?php
+session_start();
 require_once __DIR__."/custom.php";
 require_once __DIR__."/read.php";
+
 if($_POST['a0']){
     echo "saveされました";
 }
@@ -26,12 +28,19 @@ if($_POST['a0']){
     </div>
 
     <div id="main">
+        <form id="list" name="list" method="post" action="save.php">
+        <div>
         <button id="save" type="submit">保存</button>
         <button id="plus">+</button><button id="delete_btn">-</button>
+        </div>
 
-        <form id="list" name="list" method="post" action="save.php">
             <?php
+            var_dump("sql ".$_SESSION['sql']);
             foreach($result as $row){
+            if($row['text']==""){
+                $startId =$row['id'];
+                break;
+            }
                 $cnI=1;
             echo "<input type='checkbox' name='check[]'>
             <input type='text' name='textboxList[]' value=".$row['text']."><br>";

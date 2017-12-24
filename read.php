@@ -1,10 +1,10 @@
 <?php
 include __DIR__."/cnDBplus.php";
-$sql="SELECT* FROM list_memo";
+$sql="SELECT* FROM list_memo WHERE is_deleted=1";
 $stm = getDB()->prepare($sql);
 $stm->execute();
 $result = $stm->fetchAll(PDO::FETCH_ASSOC);
-$_SESSION['idcount']=count($result);
+
 
 //foreach ($result as $row){
 //    $id=$row['id'];

@@ -7,18 +7,19 @@ var_dump($textboxList);
 //saveを押すごとにinsert
   try {
     $sql=null;
+      $countsql=1;
       foreach ($textboxList as $textrow){
-          $countsql=1;
-          $stm->bindValue(":text".$countsql, $textrow);
-          $countsql++;
-          $sql.="INSERT list_memo(text,is_deleted) VALUES(:text".$countsql.");";
+          $sql.="INSERT list_memo(text) VALUES(:text".++$countsql.");";
       }
       //is_deleted
     echo "sql: ".$sql;
       $stm = getDB()->prepare($sql);
+      $countsqlp=1;
+      foreach ($textboxList as $textrow) {
+          $stm->bindValue(":text" . ++$countsqlp, $textrow);
+      }
       $stm->execute();
       $stm=null;
-
 
   } catch (Exception $e) {
 

@@ -5,25 +5,25 @@ include  __DIR__."/cnDBplus.php";
 $textboxList=$_POST['textboxList'];
 var_dump($textboxList);
 //saveを押すごとにinsert
-  try {
+
     $sql=null;
-      $countsql=1;
-      foreach ($textboxList as $textrow){
-          $sql.="INSERT list_memo(text) VALUES(:text".++$countsql.");";
+      $countsql=1;$countsqlp=1;
+
+foreach ($textboxList as $textrow){
+          $sql="INSERT list_memo(text) VALUES(:text".++$countsql.");";
+          $stm = getDB()->prepare($sql);
+          $stm->bindValue(":text" . ++$countsqlp, $textrow);
+          echo "bind: ".$countsqlp.$textrow;
+          $stm->execute();
       }
       //is_deleted
     echo "sql: ".$sql;
-      $stm = getDB()->prepare($sql);
-      $countsqlp=1;
-      foreach ($textboxList as $textrow) {
-          $stm->bindValue(":text" . ++$countsqlp, $textrow);
-      }
-      $stm->execute();
-      $stm=null;
 
-  } catch (Exception $e) {
+var_dump($stm);
 
-  }
+
+$stm=null;
+
 
 //header('Location: http://enoatu.com/memo/listmemo/index.php');
 exit();

@@ -1,6 +1,6 @@
 <?php
 include __DIR__."/cnDBplus.php";
-$sql="SELECT* FROM list_memo WHERE is_deleted=1";
+$sql="SELECT* FROM list_memo WHERE is_deleted=0";
 $stm = getDB()->prepare($sql);
 $stm->execute();
 $result = $stm->fetchAll(PDO::FETCH_ASSOC);

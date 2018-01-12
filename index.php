@@ -37,7 +37,7 @@ if($_POST['a0']){
             <?php
             var_dump("sql ".$_SESSION['sql']);
             foreach($result as $row){
-            if($row['text']==""){
+            if($row['text']==""){ //blank branch
                 $startId =$row['id'];
                 break;
             }
@@ -47,6 +47,7 @@ if($_POST['a0']){
                 $cnI++;
             }
 
+            $_SESSION['beforeTextBoxListResult']=$result;// to save.php
             ?>
         </form>
     </div>

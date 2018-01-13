@@ -1,5 +1,5 @@
 $("#plus").on("click",function () {
-    var text="<input type='checkbox'><input type='text'><br>";
+    var text="<input type='checkbox' name='check[]'><input type='text' name='textboxList[]' ><br>";
     $("#list").append(text);
 });
 $("#list").find(">input[type=checkbox]").on("click",show);

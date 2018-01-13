@@ -31,26 +31,26 @@ if($_POST['a0']){
         <form id="list" name="list" method="post" action="save.php">
         <div>
         <button id="save" type="submit">保存</button>
-        <button id="plus">+</button><button id="delete_btn">-</button>
+        <button id="plus" type="button">+</button><button id="delete_btn" type="button">-</button>
         </div>
 
             <?php
-            var_dump($result);
+            var_dump($result."<br>");
             if($result==null){//text dont exist
                 echo "<input type='checkbox' name='check[]'>
                 <input type='text' name='textboxList[]' ><br>";
 
             }else{
                 foreach($result as $row){
-
-                    if($row['text']==""){ //blank branch
-                    $startId =$row['id'];
-                    break;
-                    }
+//
+//                    if($row['text']==""){ //blank branch
+//                    $startId =$row['id'];
+//                    break;
+//                    }
 
                     $cnI=1;
                 echo "<input type='checkbox' name='check[]'>
-                <input type='text' name='textboxList[]' value=".$row['text']."><br>";
+                <input type='text' name='textboxList[]' value=".$row['text'].">".$row['saved_datetime']."<br>";
                     $cnI++;
 
                 }

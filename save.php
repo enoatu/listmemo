@@ -3,7 +3,6 @@ session_start();
 include  __DIR__."/cnDBplus.php";
 //ここでは送信されたデータをもとにSQLにデータを挿入してきます。
 $textboxList=$_POST['textboxList']; //normal array
-var_dump($_SESSION['beforeTextBoxList']);
 //$_SESSION['beforeTextBoxList'];//associative array ['id']['text']['is_deleted']..
 $beforeTextBoxList=array_column($_SESSION['beforeTextBoxListResult'],'text');
 
@@ -18,15 +17,15 @@ foreach ($textboxList as $textrow){
 
         // insert new text
         $sql_insert = "INSERT list_memo(text) VALUES(:text" . $countsql . ");";
-        echo "bind : " . $countsql . $textrow;
+        echo "<br>bind : " . $countsql . $textrow;
         $stm = getDB()->prepare($sql_insert);
         $stm->bindValue(":text" . $countsql, $textrow);
         $stm->execute();
 
         // is_deleted flag (of old text) -> on
-        $sql_update = "UPDATE list_memo SET is_deleted = 1 WHERE text = :beforetext" .$countsql .");";
-        echo "update: ".$sql_update;
-        echo "is_deleted flag on: " .$countsql . current($beforeTextBoxList);
+        $sql_update = "UPDATE list_memo SET is_deleted = 1 WHERE text = :beforetext" .$countsql;
+        echo "<br>update: ".$sql_update;
+        echo "<br>is_deleted flag on: " .$countsql . current($beforeTextBoxList);
 
         $stm = getDB()->prepare($sql_update);
         $stm ->bindValue(":beforetext" . $countsql, current($beforeTextBoxList));
@@ -38,7 +37,7 @@ foreach ($textboxList as $textrow){
 
 }
       //is_deleted
-    echo "sql: ".$sql;
+    echo "<br>sql: ".$sql;
 
 var_dump($stm);
 

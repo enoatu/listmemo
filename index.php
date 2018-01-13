@@ -35,16 +35,25 @@ if($_POST['a0']){
         </div>
 
             <?php
-            var_dump("sql ".$_SESSION['sql']);
-            foreach($result as $row){
-            if($row['text']==""){ //blank branch
-                $startId =$row['id'];
-                break;
-            }
-                $cnI=1;
-            echo "<input type='checkbox' name='check[]'>
-            <input type='text' name='textboxList[]' value=".$row['text']."><br>";
-                $cnI++;
+            var_dump($result);
+            if($result==null){//text dont exist
+                echo "<input type='checkbox' name='check[]'>
+                <input type='text' name='textboxList[]' ><br>";
+
+            }else{
+                foreach($result as $row){
+
+                    if($row['text']==""){ //blank branch
+                    $startId =$row['id'];
+                    break;
+                    }
+
+                    $cnI=1;
+                echo "<input type='checkbox' name='check[]'>
+                <input type='text' name='textboxList[]' value=".$row['text']."><br>";
+                    $cnI++;
+
+                }
             }
 
             $_SESSION['beforeTextBoxListResult']=$result;// to save.php

@@ -8,7 +8,7 @@
     body{
         width:100%;
         height: 100%;
-        text-align: center;
+        /*text-align: center;*/
     }
 
     h1{
@@ -17,20 +17,32 @@
 
     #wrap{
         vertical-align: middle;
-        text-align: center;
-        display:flex;
+        background-color: #ffc1c0;
+        /*text-align: center;*/
+
     }
-    #side{
-        flex:1 ;
-        background:#7ac2ff;
-        height: 100%;
+    #menuBar{
+        position: fixed;
+        right:20px;
+        top:20px;
+
+    }
+
+    li{
+        list-style: none;
     }
 
     #main{
-        flex: 4;
+
+        background-color: #feffbb;
+
+    }
+
+    .datetime{
+        font-size: 0.6em;
     }
     #list{
-        text-align: center;
+        /*text-align: center;*/
     }
     #plus_minus_flex{
         display: flex;
@@ -44,16 +56,25 @@
     input[type=checkbox]{
         width:25px;
         height:25px;
-        /*visibility: hidden;*/
-        display:none;
+        visibility: hidden;
+
+
     }
     input[type=text]{
-        width:50%;
-        height:30px;
+        width:80%;
+        height:25px;
         font-size: 1.5em;
+        margin:2px;
 
     }
+    input{
+        padding: 0.5em;
+    }
+    #tm,#dl{
+        background-color: pink;
 
+    visibility: hidden;
+    }
 
 }
 

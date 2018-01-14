@@ -3,7 +3,7 @@ session_start();
 require_once __DIR__."/custom.php";
 require_once __DIR__."/read.php";
 
-if($_POST['a0']){
+if(isset($_POST['saved'])){
     echo "saveされました";
 }
 ?>
@@ -23,8 +23,9 @@ if($_POST['a0']){
 <h1><?php echo $title;?></h1>
 
 <div id="wrap">
-    <div id="side">
-        <button></button>
+    <div id="menuBar">
+        <p id="tm">タイムマシン</p><img src="menu.png" style="border-radius: 20%">
+        <p id="dl">削除</p>
     </div>
 
     <div id="main">
@@ -34,29 +35,21 @@ if($_POST['a0']){
         <button id="plus" type="button">+</button><button id="delete_btn" type="button">-</button>
         </div>
 
+
             <?php
-            var_dump($result."<br>");
+//            var_dump($result."<br>");
             if($result==null){//text dont exist
-                echo "<input type='checkbox' name='check[]'>
-                <input type='text' name='textboxList[]' ><br>";
+                echo " <label><input type='checkbox' name='check[]' >
+                <input type='text' name='textBoxList[]' ><br></label>";
 
             }else{
                 foreach($result as $row){
 //
-//                    if($row['text']==""){ //blank branch
-//                    $startId =$row['id'];
-//                    break;
-//                    }
-
-                    $cnI=1;
-                echo "<input type='checkbox' name='check[]'>
-                <input type='text' name='textboxList[]' value=".$row['text'].">".$row['saved_datetime']."<br>";
-                    $cnI++;
-
+                echo "<label><input type='checkbox' name='check[]'>".
+                        "<input type='text' name='textBoxList[]' value=".$row['text']."><br></label>";
                 }
             }
 
-            $_SESSION['beforeTextBoxListResult']=$result;// to save.php
             ?>
         </form>
     </div>

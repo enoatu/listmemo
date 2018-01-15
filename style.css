@@ -72,8 +72,12 @@
     }
     #tm,#dl{
         background-color: pink;
+        text-align: center;
 
     visibility: hidden;
+    }
+    #dl>span{
+        text-align: center;
     }
 
 }

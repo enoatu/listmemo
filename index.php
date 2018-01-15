@@ -25,7 +25,7 @@ if(isset($_POST['saved'])){
 <div id="wrap">
     <div id="menuBar">
         <p id="tm">タイムマシン</p><img src="menu.png" style="border-radius: 20%">
-        <p id="dl">削除</p>
+        <p id="dl"><span>削除</span></p>
     </div>
 
     <div id="main">

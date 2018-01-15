@@ -1,5 +1,5 @@
 var open="hide";
-$("#menuBar").on("click",function () {
+$("#menuBar").find(">img").on("click",function () {
     // if(open==="hide"){//checkbox show
     //     $("#list").find(">input[type=checkbox]").show();
     //     open="show";
@@ -9,14 +9,19 @@ $("#menuBar").on("click",function () {
     //
     // }
     if(open==="hide"){//checkbox show
+        show();
         $("input[type=checkbox],#tm,#dl").css(
             "visibility","visible"
             );
+            show();
         open="show";
     }else{//checkbox hide
-        $("input[type=checkbox],#tm,#dl").css(
+        show();
+        $("input[type=checkbox],#tm,#dl,#delete_btn").css(
         "visibility","hidden");
+
         open="hide";
+
 
     }
 });
@@ -57,13 +62,14 @@ $("#delete_btn").on("click",function () {
 
 
 
-$("input[type=checkbox]").on("click",show);
+$("#main").on("click","input[type=checkbox]",show);
+var obj;
 
-
-    var flag;
-    var obj = document.list.elements['check[]'];
-    var len = obj.length;
     function show() {//jquery のshow()とは無関係
+        console.log("show");
+        var flag;
+         obj= document.list.elements['check[]'];
+        var len = obj.length;
         if (!len) {
             // checkboxが一つしかないときはこちらの処理
             // 有効なcheckboxだけチェックする
@@ -83,8 +89,8 @@ $("input[type=checkbox]").on("click",show);
                 if (obj[i].checked === true) {
                     flag = true;
                     break;
-                }else{flag=false;}
 
+                }else{flag=false;}
             }
             if (flag === true) {
                 document.getElementById("delete_btn").style.visibility = "visible";

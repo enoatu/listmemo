@@ -16,7 +16,7 @@
     }
 
     #wrap{
-        vertical-align: middle;
+        /*vertical-align: middle;*/
         background-color: #ffc1c0;
         /*text-align: center;*/
 
@@ -24,7 +24,7 @@
     #menuBar{
         position: fixed;
         right:20px;
-        top:20px;
+        top:9px;
 
     }
 
@@ -44,11 +44,8 @@
     #list{
         /*text-align: center;*/
     }
-    #plus_minus_flex{
-        display: flex;
-        text-align: center;
 
-    }
+
     #delete_btn{
         visibility: hidden;
     }
@@ -67,17 +64,42 @@
         margin:2px;
 
     }
-    input{
-        padding: 0.5em;
-    }
+
     #tm,#dl{
         background-color: pink;
-        text-align: center;
+
 
     visibility: hidden;
     }
     #dl>span{
         text-align: center;
+    }
+
+
+    #saveBar{
+        position: fixed;
+        bottom:25px;
+        display: flex;
+        width:100%;
+        background-color: white;
+        border: solid darkblue;
+        height: 10%;
+        padding:0;
+        margin:0 auto;
+
+
+    }
+
+    #save{
+        flex: 1;
+        border-radius: 100%;
+        font-size: 2em;
+    }
+
+    #plus{
+        flex:1;
+        border-radius: 100%;
+        font-size: 2em;
     }
 
 }

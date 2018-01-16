@@ -21,6 +21,7 @@ if(isset($_POST['saved'])){
 <body style="background-color: <?php echo $background_color;?>">
 
 <h1><?php echo $title;?></h1>
+<h3><?php echo $new;?>　←new!</h3>
 
 <div id="wrap">
     <div id="menuBar">
@@ -30,7 +31,7 @@ if(isset($_POST['saved'])){
 
     <div id="main">
         <form id="list" name="list" method="post" action="save.php">
-        <div>
+        <div id="saveBar">
         <button id="save" type="submit">保存</button>
         <button id="plus" type="button">+</button><button id="delete_btn" type="button">-</button>
         </div>
@@ -56,6 +57,9 @@ if(isset($_POST['saved'])){
 
 </div>
 
+
+
+</div>
 
 
 </body>

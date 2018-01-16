@@ -43,18 +43,18 @@ var is_delete=[];
 
 $("#delete_btn").on("click",function () {
 
-    $("input[type=checkbox]").each(function (i) {
-
-        if ($(this).prop("checked") === false) {
-            is_delete.push(0);
-            console.log(0);
-        } else {
-            is_delete.push(1);
-            console.log(1);
-
-        }
-
-    });
+    // $("input[type=checkbox]").each(function (i) {
+    //
+    //     if ($(this).prop("checked") === false) {
+    //         is_delete.push(0);
+    //         console.log(0);
+    //     } else {
+    //         is_delete.push(1);
+    //         console.log(1);
+    //
+    //     }
+    //
+    // });
 
     $("input[type=checkbox]:checked").parent().remove();
 

@@ -14,11 +14,12 @@ $stm->bindValue(":new",$new);
 $stm->execute();
 $result = $stm->fetchAll(PDO::FETCH_ASSOC);
 
-$sql="SELECT* FROM list_memo ORDER BY display_position";
+$sql="SELECT* FROM list_memo";
 $stm = getDB()->prepare($sql);
-$stm->bindValue(":new",$new);
 $stm->execute();
 $result2 = $stm->fetchAll(PDO::FETCH_ASSOC);
+
+$stm=null;
 
 //foreach ($result as $row){
 //    $id=$row['id'];

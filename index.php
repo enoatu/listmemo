@@ -26,35 +26,43 @@ if(isset($_POST['saved'])){
 <div id="wrap">
     <div id="menuBar">
         <p id="tm">タイムマシン</p><img src="menu.png" style="border-radius: 20%">
-        <p id="dl"><span>削除</span></p>
+        <p id="dl"><span>削除</span></p><button id="delete_btn" type="button">-</button>
     </div>
 
-    <div id="main">
-        <form id="list" name="list" method="post" action="save.php">
-        <div id="saveBar">
-        <button id="save" type="submit">保存</button>
-        <button id="plus" type="button">+</button><button id="delete_btn" type="button">-</button>
-        </div>
+    <div id="scroll">
+
+        <?php ?>
+
+        <div id="main" class="scrollBox">
 
 
-            <?php
-//            var_dump($result."<br>");
-            if($result==null){//text dont exist
-                echo " <label><input type='checkbox' name='check[]' >
-                <input type='text' name='textBoxList[]' ><br></label>";
 
-            }else{
-                foreach($result as $row){
-//
-                echo "<label><input type='checkbox' name='check[]'>".
-                        "<input type='text' name='textBoxList[]' value=".$row['text']."><br></label>";
+
+            <form id="list" name="list" method="post" action="save.php">
+            <div id="saveBar">
+            <button id="save" type="submit">保存</button>
+            <button id="plus" type="button">+</button>
+            </div>
+
+
+                <?php
+    //            var_dump($result."<br>");
+                if($result==null){//text dont exist
+                    echo " <label><input type='checkbox' name='check[]' >
+                    <input type='text' name='textBoxList[]' ><br></label>";
+
+                }else{
+                    foreach($result as $row){
+    //
+                    echo "<label><input type='checkbox' name='check[]'>".
+                            "<input type='text' name='textBoxList[]' value=".$row['text']."><br></label>";
+                    }
                 }
-            }
 
-            ?>
-        </form>
+                ?>
+            </form>
+        </div>
     </div>
-
 </div>
 
 

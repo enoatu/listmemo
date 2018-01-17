@@ -1,19 +1,5 @@
 @media screen and (min-width:0px) {
     /*基本　スマホ用*/
-    html{
-        width:100%;
-        height: 100%;
-    }
-
-    body{
-        width:100%;
-        height: 100%;
-        /*text-align: center;*/
-    }
-
-    h1{
-
-    }
 
     #wrap{
         /*vertical-align: middle;*/
@@ -28,14 +14,22 @@
 
     }
 
+    #scroll{
+        overflow-y: hidden;
+        overflow-x: scroll;
+
+    }
+    .scrollBox{
+        flex: 0 0 88%;
+    }
+
     li{
         list-style: none;
     }
 
     #main{
-
         background-color: #feffbb;
-
+        margin-bottom: 28%;
     }
 
     .datetime{
@@ -68,21 +62,19 @@
     #tm,#dl{
         background-color: pink;
 
+        visibility: hidden;
+    }
 
-    visibility: hidden;
-    }
-    #dl>span{
-        text-align: center;
-    }
 
 
     #saveBar{
         position: fixed;
         bottom:25px;
+        right:0.1%;
         display: flex;
         width:100%;
         background-color: white;
-        border: solid darkblue;
+        /*border: solid darkblue;*/
         height: 10%;
         padding:0;
         margin:0 auto;
@@ -91,13 +83,13 @@
     }
 
     #save{
-        flex: 1;
+        flex: 10;
         border-radius: 100%;
         font-size: 2em;
     }
 
     #plus{
-        flex:1;
+        flex:10;
         border-radius: 100%;
         font-size: 2em;
     }

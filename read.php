@@ -14,10 +14,21 @@ $stm->bindValue(":new",$new);
 $stm->execute();
 $result = $stm->fetchAll(PDO::FETCH_ASSOC);
 
-$sql="SELECT* FROM list_memo";
+$oneWeekAgo=date("Y-m-d H:i:s",strtotime("-1 week"));
+
+$sql="SELECT* FROM list_memo WHERE saved_datetime > :oneWeekAgo";
 $stm = getDB()->prepare($sql);
+$stm->bindValue(":oneWeekAgo",$oneWeekAgo);
 $stm->execute();
 $result2 = $stm->fetchAll(PDO::FETCH_ASSOC);
+
+
+array
+foreach (){
+
+}
+
+
 
 $stm=null;
 

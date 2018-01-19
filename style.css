@@ -3,7 +3,6 @@
 
     #wrap{
         /*vertical-align: middle;*/
-        background-color: #ffc1c0;
         /*text-align: center;*/
 
     }
@@ -59,7 +58,7 @@
 
     }
 
-    #tm,#dl{
+    #tm,#delete_btn{
         background-color: pink;
 
         visibility: hidden;

@@ -21,30 +21,40 @@ if(isset($_POST['saved'])){
 <body style="background-color: <?php echo $background_color;?>">
 
 <h1><?php echo $title;?></h1>
-<h3><?php echo $new;?>　←new!</h3>
+
 
 <div id="wrap">
     <div id="menuBar">
-        <p id="tm">タイムマシン</p><img src="menu.png" style="border-radius: 20%">
-        <p id="dl"><span>削除</span></p><button id="delete_btn" type="button">-</button>
+        <p id="tm" draggable="true">タイムマシン</p><img src="menu.png" style="border-radius: 20%">
+        <p id="delete_btn" class="checkAndDisplay"><span>削除</span></p>
     </div>
 
     <div id="scroll">
 
-        <?php ?>
+        <?php
+        foreach($result2 as $row) {
 
+            echo "<div class='scrollBox'>";
+            if ($row == null) {//text dont exist
+                break;
+            } else {
+                echo "<h3>" .  . "</h3>";
+                echo "<label><input type='checkbox' name='check[]'>" .
+                    "<input type='text' name='textBoxList[]' value=" . $row['text'] . "><br></label>";
+            }
+
+            echo "</div>";
+        }
+        ?>
+        }
         <div id="main" class="scrollBox">
-
-
-
 
             <form id="list" name="list" method="post" action="save.php">
             <div id="saveBar">
             <button id="save" type="submit">保存</button>
             <button id="plus" type="button">+</button>
             </div>
-
-
+                <h3><?php echo $new;?>　←new!</h3>
                 <?php
     //            var_dump($result."<br>");
                 if($result==null){//text dont exist
@@ -62,6 +72,7 @@ if(isset($_POST['saved'])){
                 ?>
             </form>
         </div>
+
     </div>
 </div>
 

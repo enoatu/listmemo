@@ -17,7 +17,7 @@ $("#menuBar").find(">img").on("click",function () {
         open="show";
     }else{//checkbox hide
         show();
-        $("input[type=checkbox],#tm,#dl,#delete_btn").css(
+        $("input[type=checkbox],#tm,#dl,.checkAndDisplay").css(
         "visibility","hidden");
 
         open="hide";
@@ -78,9 +78,11 @@ var obj;
             }else{flag=false;}
 
             if (flag === true) {
-                document.getElementById("delete_btn").style.visibility = "visible";
+                $(".checkAndDisplay").css(
+                    "visibility","visible");
             } else {
-                document.getElementById("delete_btn").style.visibility = "hidden";
+                $(".checkAndDisplay").css(
+                    "visibility","hidden");
             }
         }
         else {
@@ -93,9 +95,11 @@ var obj;
                 }else{flag=false;}
             }
             if (flag === true) {
-                document.getElementById("delete_btn").style.visibility = "visible";
+                $(".checkAndDisplay").css(
+                    "visibility","visible");
             } else {
-                document.getElementById("delete_btn").style.visibility = "hidden";
+                $(".checkAndDisplay").css(
+                    "visibility","hidden");
             }
 
         }

@@ -32,19 +32,22 @@ if(isset($_POST['saved'])){
     <div id="scroll">
 
         <?php
-        foreach($result2 as $row) {
+        for ($i=1;$i>=$days;$i++){
 
             echo "<div class='scrollBox'>";
-            if ($row == null) {//text dont exist
+            if (true == false) {//text dont exist
                 break;
             } else {
-                echo "<h3>" .  . "</h3>";
-                echo "<label><input type='checkbox' name='check[]'>" .
-                    "<input type='text' name='textBoxList[]' value=" . $row['text'] . "><br></label>";
+                for($i=0;$i>$count;$i++){
+                    echo "<h3>"  .$saved_datetime[$days][$count]. "</h3>";
+                    echo "<label><input type='checkbox' name='check[]'>" .
+                        "<input type='text' name='textBoxList[]' value=" . $textar[$days][$count] . "><br></label>";
+                }
             }
 
             echo "</div>";
         }
+
         ?>
         }
         <div id="main" class="scrollBox">

@@ -57,7 +57,7 @@ if(isset($_POST['saved'])){
             <button id="save" type="submit">保存</button>
             <button id="plus" type="button">+</button>
             </div>
-                <h3><?php echo $new;?>　←new!</h3>
+                <h3><?php echo $new;?></h3>
                 <?php
     //            var_dump($result."<br>");
                 if($result==null){//text dont exist

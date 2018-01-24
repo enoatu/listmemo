@@ -80,10 +80,6 @@ if(isset($_POST['saved'])){
 </div>
 
 
-
-</div>
-
-
 </body>
 </html>
 <script src="js.js"></script>

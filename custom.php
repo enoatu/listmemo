@@ -8,6 +8,6 @@
 $id=1;//inserted row id
 $title="list_memo";
 $textcolor="#000";
-$background_color="#9F7";
+$background_color="pink";
 $checkbox_color="#f00";
 

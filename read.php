@@ -22,32 +22,34 @@ $stm->bindValue(":oneWeekAgo",$oneWeekAgo);
 $stm->execute();
 $result2 = $stm->fetchAll(PDO::FETCH_ASSOC);
 
-$days=1;
+$days=0;
 $textar=[];
 $is_deleted=[];
 $count=0;
+$initialize=null;
 
-//var_dump($result2);
-var_dump($result2[0]['saved_datetime']);
+foreach ($result2 as $row) {//in1week every write time, group by day
 
-foreach ($result2 as $row){//in1week every write time, group by day
+    if (!isset($initialize)){//initialize
+        $initialize=$row['saved_datetime'];
 
-   if($row['saved_datetime'] !==next($row['saved_datetime'])){//isnotsame
-       prev($row['saved_datetime']);
-       $count=0;//child initialize
-      $days++;
-   }else{//is same datetime->throw
-       $count++;
-   }
-    $saved_datetime[$days][$count]=$row['saved_datetime'];
-    $textar[$days][$count]=$row['text'];
-    $is_deleted[$days][$count]=$row['is_deleted'];
+    } else{
+        if ($initialize!=$row['saved_datetime']) {//isnotsame datetime
+            $count = 0;//child initialize
+            $days++;
+            $initialize=$row['saved_datetime'];
 
-    next($row['saved_datetime']);
+
+        } else {//is same datetime->throw
+            $count++;
+        }
+
+    }
+    $saved_datetime[$days][$count] = $row['saved_datetime'];
+    $textar[$days][$count] = $row['text'];
+    $is_deleted[$days][$count] = $row['is_deleted'];
+
 }
-
-
-
 
 
 

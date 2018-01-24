@@ -12,14 +12,31 @@
         top:9px;
 
     }
-
+    .add{
+        display: none;
+    }
     #scroll{
-        overflow-y: hidden;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
         overflow-x: scroll;
-
+        overflow-y:scroll;
+        /*-webkit-overflow-scrolling: touch;*/
     }
     .scrollBox{
-        flex: 0 0 88%;
+        flex: 1;
+    }
+    .addInLine{
+        margin:3px;
+        background-color: #FFF;
+        overflow: scroll;
+        height:75%;
+        /*border-left:solid #999999;*/
+        /*border-top:solid  #999999;*/
+        /*border-bottom: solid #999999;*/
+        border: solid #999999;
+    }
+    .tm_text{
     }
 
     li{
@@ -29,6 +46,7 @@
     #main{
         background-color: #feffbb;
         margin-bottom: 28%;
+
     }
 
     .datetime{
@@ -51,7 +69,7 @@
 
     }
     input[type=text]{
-        width:80%;
+
         height:25px;
         font-size: 1.5em;
         margin:2px;
@@ -59,8 +77,8 @@
     }
 
     #tm,#delete_btn{
-        background-color: pink;
-
+        background-color: #fff;
+        border: double #6182ca;
         visibility: hidden;
     }
 
@@ -85,12 +103,14 @@
         flex: 10;
         border-radius: 100%;
         font-size: 2em;
+        border: double #feffbb;
     }
 
     #plus{
         flex:10;
         border-radius: 100%;
         font-size: 2em;
+        border: double  #feffbb;
     }
 
 
@@ -99,5 +119,11 @@
 
 @media screen and (min-width:1024px) {
     /*パソコン修正用*/
+    input[type=text]{
+        width:80%;
+        height:50px;
+        font-size: 1.5em;
+        margin:2px;
 
+    }
 }

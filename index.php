@@ -32,24 +32,25 @@ if(isset($_POST['saved'])){
     <div id="scroll">
 
         <?php
-        for ($i=1;$i>=$days;$i++){
+        for ($i=0;$i<$days;$i++){
 
-            echo "<div class='scrollBox'>";
+            echo "<div class='scrollBox add'>";
+            echo "<div class='addInLine'>";
+            echo "<h5>"  .$saved_datetime[$i][0]. "</h5>";
             if (true == false) {//text dont exist
                 break;
             } else {
-                for($i=0;$i>$count;$i++){
-                    echo "<h3>"  .$saved_datetime[$days][$count]. "</h3>";
-                    echo "<label><input type='checkbox' name='check[]'>" .
-                        "<input type='text' name='textBoxList[]' value=" . $textar[$days][$count] . "><br></label>";
+                for($j=0;$j<count($saved_datetime[$i]);$j++){
+                    echo "<label class='addL'><input type='checkbox' name='check_en[]' class='addCB'>" .
+                        "<div name='textBoxList[]' class='tm_text'>". $textar[$i][$j] ."</div><br></label>";
                 }
             }
 
-            echo "</div>";
+            echo "</div></div>";
         }
 
         ?>
-        }
+
         <div id="main" class="scrollBox">
 
             <form id="list" name="list" method="post" action="save.php">
@@ -59,15 +60,14 @@ if(isset($_POST['saved'])){
             </div>
                 <h3><?php echo $new;?></h3>
                 <?php
-    //            var_dump($result."<br>");
                 if($result==null){//text dont exist
-                    echo " <label><input type='checkbox' name='check[]' >
+                    echo "<label><input type='checkbox' name='check[]' class='mainCB'>
                     <input type='text' name='textBoxList[]' ><br></label>";
 
                 }else{
                     foreach($result as $row){
-    //
-                    echo "<label><input type='checkbox' name='check[]'>".
+
+                    echo "<label><input type='checkbox' name='check[]' class='mainCB'>".
                             "<input type='text' name='textBoxList[]' value=".$row['text']."><br></label>";
                     }
                 }

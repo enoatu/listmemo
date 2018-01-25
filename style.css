@@ -80,6 +80,7 @@
         background-color: #fff;
         border: double #6182ca;
         visibility: hidden;
+
     }
 
 
@@ -103,14 +104,14 @@
         flex: 10;
         border-radius: 100%;
         font-size: 2em;
-        border: double #feffbb;
+        border: solid #999999;
     }
 
     #plus{
         flex:10;
         border-radius: 100%;
         font-size: 2em;
-        border: double  #feffbb;
+        border: solid #999999;
     }
 
 
@@ -126,4 +127,19 @@
         margin:2px;
 
     }
+    #save{
+        margin:0 20%;
+        font-size: 2.5em;
+    }
+
+    #plus{
+        margin:0 20%;
+        font-size: 2.5em;
+    }
+
+    #tm{
+        font-size: 1.5em;
+    }
+
+
 }

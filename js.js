@@ -75,15 +75,26 @@ function tmmode(onoff){
         $(".mainCB").prop("checked",false).css("visibility","hidden");
         $(".addCB").css("visibility","visible");
         $("#menuBar").find(">img").css("visibility","hidden");
-        $("#tm").text("タイムマシンを終了").css("fontSize","1.1em");
-        $("#plus").text("選択して追加").css("fontSize","1.5em");
+        if(s<1024) {
+            $("#tm").text("タイムマシンを終了").css("fontSize", "1.1em");
+            $("#plus").text("選択して追加").css("fontSize", "1.3em");
+        }else{
+            $("#tm").text("タイムマシンを終了").css("fontSize", "1.4em");
+            $("#plus").text("選択して追加").css("fontSize", "1.3em");
+        }
         show();
     }else{//time machine on ->off
         $(".add").css("display", "none");
         $(".mainCB").css("visibility","hidden");
         $("#menuBar").find(">img").css("visibility","visible");
-        $("#tm").text("タイムマシン").css("fontSize","1.0em");
-        $("#plus").text("+");
+        if(s<1024) {
+            $("#tm").text("タイムマシン").css("fontSize", "1.0em");
+            $("#plus").text("+");
+        }else{
+            $("#tm").text("タイムマシン").css("fontSize", "1.5em");
+            $("#plus").text("+").css("fontSize", "2.5em");
+
+        }
         $(".addCB").prop("checked",false);
 
 
@@ -148,8 +159,12 @@ var obj;
         }
     }
     console.log(s);
-    $(".addInLine").css("width",0.8*s);
+    if(s<1024) {
+        $(".addInLine").css("width", 0.8 * s);
+    }else{
+        $(".addInLine").css("width", 0.4 * s);
 
+    }
 
 
 

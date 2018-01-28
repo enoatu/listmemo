@@ -38,5 +38,5 @@ echo "<br>";
 $stm=null;
 
 
-header('Location: http://enoatu.com/memo/listmemo/index.php');
+header('Location: http://enoatu.com/memo/listmemo/index.php?A=saved');
 exit();

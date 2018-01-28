@@ -3,9 +3,6 @@ session_start();
 require_once __DIR__."/custom.php";
 require_once __DIR__."/read.php";
 
-if(isset($_POST['saved'])){
-    echo "saveされました";
-}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -14,6 +11,9 @@ if(isset($_POST['saved'])){
     initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
 
     <meta charset="UTF-8">
     <title><?php echo $title; ?></title>
@@ -72,6 +72,34 @@ if(isset($_POST['saved'])){
                     }
                 }
 
+                if(isset($_GET["A"])){
+                    echo <<<"EOD"
+<script type="text/javascript">
+   
+        toastr.options.timeOut = 3000; // 3秒
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "showDuration": "0",
+            "hideDuration": "1000",
+            "timeOut": "3000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        Command: toastr["info"]("保存しました");
+        $('#linkButton').click(function() {
+            toastr.success('click');
+        });
+</script>
+EOD;
+                }
                 ?>
             </form>
         </div>

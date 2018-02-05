@@ -114,6 +114,10 @@
         border: solid #999999;
     }
 
+    #octo{
+        position: fixed;
+        right:10%;
+    }
 
 
 }
